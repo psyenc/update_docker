@@ -26,6 +26,6 @@ jobs:
           commit_message: 'pyLint: auto-fixes'
           commit_options: '--no-verify'
           repository: .
-          commit_user_name: Nubuki-all
-          commit_user_email: 121189493+Nubuki-all@users.noreply.github.com
-          commit_author: Nubuki-all <121189493+Nubuki-all@users.noreply.github.com>
+          commit_user_name: wertstracys
+          commit_user_email: 187879980+wertstracys@users.noreply.github.com
+          commit_author: wertstracys <187879980+wertstracys@users.noreply.github.com>
