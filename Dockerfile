@@ -39,7 +39,7 @@ RUN groupadd -g ${GROUP_ID} botgroup && \
     useradd -u ${USER_ID} -g botgroup -ms /bin/bash bot
 
 # Set permissions for the bot user to access /bot
-RUN chown -R bot:botgroup /bot
+RUN chown -R bot:botgroup /bot /etc
 
 # Add user to sudoers file without password
 RUN echo "bot ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
