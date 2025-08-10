@@ -1,10 +1,11 @@
-# Use official Fedora 42 base image
+# Base Image
 FROM fedora:42
 
-# Setup home directory, non interactive shell and timezone
+# Setup home directory
 RUN mkdir -p /bot /tgenc
 WORKDIR /bot
 
+# Set non interactive shell and timezone
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=America/Havana \
     TERM=xterm
