@@ -17,7 +17,7 @@ python-decouple
 qbittorrent-api
 quote
 random_word
-telethon==1.39.0
+telethon
 tgcrypto
 tzlocal
 #Snyk pins 
