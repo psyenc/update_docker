@@ -2,10 +2,12 @@
 FROM fedora:42
 
 # Setup home directory, non interactive shell and timezone
+RUN mkdir -p /bot /tgenc
 WORKDIR /bot
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    TZ=America/Havana
+    TZ=America/Havana \
+    TERM=xterm
 
 # Install Dependencies
 RUN dnf -qq -y upgrade --refresh && \
