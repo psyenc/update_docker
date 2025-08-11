@@ -40,4 +40,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: psyenc/codeccraft:latest
+          tags: psyenc/svtav1enc:hdr
