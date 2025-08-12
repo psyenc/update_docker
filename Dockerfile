@@ -1,5 +1,5 @@
 # Base Image
-FROM fedora:42
+FROM fedora:latest
 
 # Setup home directory
 RUN mkdir -p /bot /tgenc
@@ -10,6 +10,12 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TZ=America/Havana \
     TERM=xterm
 
+# Define ARG for ffmpeg build
+ARG FFMPEG_BUILD="QuickFatHedgehog/FFmpeg-Builds-SVT-AV1-HDR"
+#ARG FFMPEG_BUILD="BtbN/FFmpeg-Builds"
+#ARG FFMPEG_BUILD="Uranite/FFmpeg-Builds-SVT-AV1-PSY"
+#ARG FFMPEG_BUILD="nekotrix/FFmpeg-Builds-SVT-AV1-Essential"
+
 # Install Dependencies
 RUN dnf -qq -y upgrade --refresh && \
     dnf -qq -y install aria2 bash curl gcc git jq mediainfo procps-ng psmisc pv python3-devel python3-pip qbittorrent-nox sudo wget xz zstd && \
@@ -17,10 +23,10 @@ RUN dnf -qq -y upgrade --refresh && \
     python3 -m pip install --upgrade pip setuptools
 
 # Install latest ffmpeg
-RUN wget -q https://github.com/QuickFatHedgehog/FFmpeg-Builds-SVT-AV1-HDR/releases/download/latest/ffmpeg-n7.1-latest-linux64-gpl-7.1.tar.xz && \
-    tar -xvf ffmpeg-n7.1-latest-linux64-gpl-7.1.tar.xz && \
-    cp ffmpeg-n7.1-latest-linux64-gpl-7.1/bin/* /usr/bin && \
-    rm -rf ffmpeg-n7.1-latest-linux64-gpl-7.1*
+RUN wget -q "https://github.com/${FFMPEG_BUILD}/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz" && \
+    tar -xvf ffmpeg-master-latest-linux64-gpl.tar.xz && \
+    cp ffmpeg-master-latest-linux64-gpl/bin/* /usr/bin && \
+    rm -rf ffmpeg-master-latest-linux64-gpl*
 
 # Install ab-av1
 RUN wget -q https://github.com/alexheretic/ab-av1/releases/download/v0.10.1/ab-av1-v0.10.1-x86_64-unknown-linux-musl.tar.zst && \
