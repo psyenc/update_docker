@@ -71,13 +71,11 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TERM=xterm
 
 # Install minimal runtime dependencies
-#RUN dnf -qq -y upgrade --refresh && \
-#    dnf -qq -y install mediainfo python3 && \
-#    dnf clean all
+RUN dnf -qq -y upgrade --refresh && \
+    dnf -qq -y install mediainfo python3 && \
+    dnf clean all
 
 # Copy from builder
-COPY --from=builder /usr/bin/mediainfo /usr/bin/
-COPY --from=builder /usr/bin/python3 /usr/bin/
 COPY --from=builder /usr/local/bin/ffmpeg /usr/local/bin/
 COPY --from=builder /usr/local/bin/ffprobe /usr/local/bin/
 COPY --from=builder /usr/local/bin/ab-av1 /usr/local/bin/
