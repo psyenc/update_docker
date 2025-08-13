@@ -19,27 +19,25 @@ ARG FFMPEG_BUILD="QuickFatHedgehog/FFmpeg-Builds-SVT-AV1-HDR"
 # Install Dependencies
 RUN dnf -qq -y upgrade --refresh && \
     dnf -qq -y install aria2 bash curl gcc git jq mediainfo procps-ng psmisc pv python3-devel python3-pip qbittorrent-nox sudo wget xz zstd && \
-    dnf clean all && \
-    python3 -m pip install --upgrade pip setuptools
+    dnf clean all
 
 # Install latest ffmpeg
 RUN wget -q "https://github.com/${FFMPEG_BUILD}/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz" && \
     tar -xvf ffmpeg-master-latest-linux64-gpl.tar.xz && \
-    cp ffmpeg-master-latest-linux64-gpl/bin/* /usr/bin && \
+    cp ffmpeg-master-latest-linux64-gpl/bin/* /usr/local/bin/ && \
     rm -rf ffmpeg-master-latest-linux64-gpl*
 
 # Install ab-av1
 RUN wget -q https://github.com/alexheretic/ab-av1/releases/download/v0.10.1/ab-av1-v0.10.1-x86_64-unknown-linux-musl.tar.zst && \
     tar -xvf ab-av1-v0.10.1-x86_64-unknown-linux-musl.tar.zst && \
-    install ab-av1 /usr/bin && \
+    install ab-av1 /usr/local/bin/ && \
     rm -rf ab-av1*
 
 # Copy files from repo to home directory
 COPY . .
 
 # Install python3 requirements
-RUN pip3 install --no-cache-dir -r requirements.txt && \
-    pip cache purge
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 # Create new user and group with a specific UID and GID
 ARG USER_ID=1000
