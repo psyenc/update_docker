@@ -80,7 +80,7 @@ COPY --from=builder /usr/local/bin/ffmpeg /usr/local/bin/
 COPY --from=builder /usr/local/bin/ffprobe /usr/local/bin/
 COPY --from=builder /usr/local/bin/ab-av1 /usr/local/bin/
 COPY --from=builder /bot /bot
-COPY --from=builder /usr/local/lib/python3.*/site-packages/ /usr/local/lib/python3.*/site-packages/
+COPY --from=builder /usr/local/lib/python3.*/site-packages/ /usr/local/lib/
 
 # Create new user and group with a specific UID and GID
 ARG USER_ID=1000
