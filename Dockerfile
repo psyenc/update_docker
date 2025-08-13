@@ -1,5 +1,5 @@
 # Base Image
-FROM fedora:latest
+FROM fedora:latest AS builder
 
 # Setup home directory
 RUN mkdir -p /bot /tgenc
@@ -56,3 +56,45 @@ USER bot
 
 # Cleanup unnecessary files
 RUN rm -rf .git* fonts scripts .env* Dockerfile License *.md requirements.txt srun.sh *.py
+
+
+# Final Image
+FROM fedora:latest
+
+# Setup home directory
+RUN mkdir -p /bot /tgenc
+WORKDIR /bot
+
+# Set non interactive shell and timezone
+ENV DEBIAN_FRONTEND=noninteractive \
+    TZ=America/Havana \
+    TERM=xterm
+
+# Install minimal runtime dependencies
+#RUN dnf -qq -y upgrade --refresh && \
+#    dnf -qq -y install mediainfo python3 && \
+#    dnf clean all
+
+# Copy from builder
+COPY --from=builder /usr/bin/mediainfo /usr/bin/
+COPY --from=builder /usr/bin/python3 /usr/bin/
+COPY --from=builder /usr/local/bin/ffmpeg /usr/local/bin/
+COPY --from=builder /usr/local/bin/ffprobe /usr/local/bin/
+COPY --from=builder /usr/local/bin/ab-av1 /usr/local/bin/
+COPY --from=builder /bot /bot
+COPY --from=builder /usr/local/lib/python3.*/site-packages/ /usr/local/lib/python3.*/site-packages/
+
+# Create new user and group with a specific UID and GID
+ARG USER_ID=1000
+ARG GROUP_ID=1000
+RUN groupadd -g ${GROUP_ID} botgroup && \
+    useradd -u ${USER_ID} -g botgroup -ms /bin/bash bot
+
+# Set permissions for the bot user to access /bot
+RUN chown -R bot:botgroup /bot
+
+# Add user to sudoers file without password
+RUN echo "bot ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+# Switch to the non-root user
+USER bot
