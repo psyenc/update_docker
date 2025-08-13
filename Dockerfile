@@ -18,7 +18,7 @@ ARG FFMPEG_BUILD="QuickFatHedgehog/FFmpeg-Builds-SVT-AV1-HDR"
 
 # Install Dependencies
 RUN dnf -qq -y upgrade --refresh && \
-    dnf -qq -y install aria2 bash curl gcc git jq mediainfo procps-ng psmisc pv python3-devel python3-pip qbittorrent-nox sudo wget xz zstd && \
+    dnf -qq -y install aria2 bash curl gcc git jq mediainfo procps-ng psmisc pv python3-devel python3-pip qbittorrent-nox wget xz zstd && \
     dnf clean all
 
 # Install latest ffmpeg
