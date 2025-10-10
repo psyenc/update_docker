@@ -1,7 +1,7 @@
 
-valor_numero = int(input("Asere, ¿cuánto le metiste a cada número?: "))  
-cantidad_jugadas = int(input("¿Cuántas jugaditas te tiraste hoy, socio?: ")) 
-total_numeros = int(input("¿Cuántos números salieron en la bolita hoy?: "))  
+valor_numero = int(input("Asere, ¿cuánto le metiste a cada número?: "))
+cantidad_jugadas = int(input("¿Cuántas jugaditas te tiraste hoy, socio?: "))
+total_numeros = int(input("¿Cuántos números salieron en la bolita hoy?: "))
 
 paga_fijo = input("¿Pagan a 85 por cada peso, o no? (si/no): ")
 if paga_fijo.lower() == "si":
@@ -21,7 +21,10 @@ print("Se te fue este billete en el juego: ", gasto_total, "💸")
 print("Pero mira lo que entró por los aciertos: ", ganancia_total, "🤑")
 
 if ganancia_neta >= 0:
-    print("¡Epa! ¡Tremenda ganancia neta hoy!: ", ganancia_neta, "🎉 ¡Te coronaste, socio!")
+    print("¡Epa! ¡Tremenda ganancia neta hoy!: ",
+          ganancia_neta, "🎉 ¡Te coronaste, socio!")
 else:
-    print("¡Ay, mi madre! Perdiste: ", abs(ganancia_neta), "😭 ¡Pa' la próxima será!")
-    
+    print(
+        "¡Ay, mi madre! Perdiste: ",
+        abs(ganancia_neta),
+        "😭 ¡Pa' la próxima será!")
