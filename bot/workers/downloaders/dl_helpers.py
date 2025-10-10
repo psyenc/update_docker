@@ -126,13 +126,19 @@ async def get_leech_name(url):
             if download.name.startswith("[METADATA]") or download.name.endswith(
                 ".torrent"
             ):
-                await asyncio.sleep(2)
+                await asyncio.sleep(1)
                 continue
             if not download.total_length and (
                 not (ext := os.path.splitext(download.name)[1]) or "?" in ext
             ):
-                await asyncio.sleep(2)
+                await asyncio.sleep(1)
                 continue
+            if not download.bittorrent:
+                file_path = str(download.files[0].path.absolute())
+                dir_path = str(download.dir.absolute())
+                if not file_path.startswith(dir_path):
+                    await asyncio.sleep(1)
+                    continue
 
             dinfo.name = download.name
             break

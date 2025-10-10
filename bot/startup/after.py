@@ -46,7 +46,9 @@ async def start_rpc():
     os.system(
         f"aria2c --enable-rpc=true --rpc-max-request-size=1024M --rpc-listen-port={conf.ARIA2_PORT} "
         "--seed-time=0 --follow-torrent=mem --summary-interval=0 --daemon=true --allow-overwrite=true "
-        "--user-agent=Wget/1.12"
+        "--user-agent=Wget/1.12 "
+        "--max-connection-per-server=10 --http-accept-gzip=true --split=10 --disk-cache=40M "
+        "--min-split-size=10M --optimize-concurrent-downloads=true"
     )
     if not _bot.started:
         await asyncio.sleep(1)
