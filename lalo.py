@@ -27,9 +27,10 @@ if veces_ganadas > 0:
         print("Entró algo, pero no alcanzó: ", ganancia_total, "😔")
 
 if ganancia_neta > 0:
-    print("¡Epa! ¡Tremenda ganancia neta hoy!: ", ganancia_neta, "🎉\n¡Te coronaste, socio!")
+    print("¡Epa! ¡Tremenda ganancia neta hoy!: ",
+          ganancia_neta, "🎉\n¡Te coronaste, socio!")
 elif ganancia_neta == 0:
     print("¡Uff! ¡Hoy no ganaste ni perdiste!", "😅\n¡Quedaste a mano, socio!")
 else:
-    print("¡Ay, mi madre! ¡Qué tumbada!\nPerdiste: ", abs(ganancia_neta), "😭\n¡Pa' la próxima será!")
-    
+    print("¡Ay, mi madre! ¡Qué tumbada!\nPerdiste: ",
+          abs(ganancia_neta), "😭\n¡Pa' la próxima será!")
