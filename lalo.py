@@ -23,6 +23,8 @@ if veces_ganadas > 0:
     print("Pero mira lo que entró por los aciertos: ", ganancia_total, "🤑")
 
 if ganancia_neta >= 0:
-    print("¡Epa! ¡Tremenda ganancia neta hoy!: ", ganancia_neta, "🎉\n¡Te coronaste, socio!")
+    print("¡Epa! ¡Tremenda ganancia neta hoy!: ",
+          ganancia_neta, "🎉\n¡Te coronaste, socio!")
 else:
-    print("¡Ay, mi madre! ¡Tremenda tumbada!\nPerdiste: ", abs(ganancia_neta), "😭 ¡Pa' la próxima será!")
+    print("¡Ay, mi madre! ¡Tremenda tumbada!\nPerdiste: ",
+          abs(ganancia_neta), "😭 ¡Pa' la próxima será!")
