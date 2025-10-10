@@ -1,8 +1,8 @@
 
-precio_juego = 10 💰
-juegos_diarios = 6 🎲
-numeros_loteria = 31 🔢
-premio_por_acierto = 850 🏆
+precio_juego = 10 
+juegos_diarios = 6 
+numeros_loteria = 31 
+premio_por_acierto = 850 
 
 ganados = int(input("¿Cuántas veces ganaste hoy, mi socio?: "))
 
