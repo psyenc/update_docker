@@ -1,8 +1,8 @@
 
-precio_juego = 10 
-juegos_diarios = 6 
-numeros_loteria = 31 
-premio_por_acierto = 850 
+precio_juego = 10
+juegos_diarios = 6
+numeros_loteria = 31
+premio_por_acierto = 850
 
 ganados = int(input("¿Cuántas veces ganaste hoy, mi socio?: "))
 
@@ -18,4 +18,3 @@ if ganancia_neta >= 0:
     print("¡Tremenda ganancia neta del día!: ", ganancia_neta, "🎉")
 else:
     print("¡Mala suerte! Pérdida: ", abs(ganancia_neta), "😭")
-    
