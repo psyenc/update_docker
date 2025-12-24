@@ -71,7 +71,9 @@ class Downloader:
     def gen_buttons(self):
         # Create a "Cancel" button
         cancel_button = InlineKeyboardButton(
-            text=f"{enmoji()} Cancel Download", callback_data=self.callback_data
+            text=f"{
+                enmoji()} Cancel Download",
+            callback_data=self.callback_data,
         )
         if self.dl_info:
             # Create an "info" button
@@ -95,7 +97,9 @@ class Downloader:
         if self.lc:
             try:
                 cancel_button = InlineKeyboardButton(
-                    text=f"{enmoji()} CANCEL DOWNLOAD", callback_data=self.callback_data
+                    text=f"{
+                        enmoji()} CANCEL DOWNLOAD",
+                    callback_data=self.callback_data,
                 )
                 more_button = InlineKeyboardButton(
                     text="ℹ️",

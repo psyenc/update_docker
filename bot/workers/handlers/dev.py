@@ -96,7 +96,8 @@ async def bash(event, cmd, client):
     o = stdout.decode()
     if not o:
         o = "Tip:\nIf you want to see the results of your code, I suggest printing them to stdout."
-    OUTPUT = f"QUERY:\n__Command:__\n{cmd} \n__PID:__\n{process.pid}\n\nstderr: \n{e}\nOutput:\n{o}"
+    OUTPUT = f"QUERY:\n__Command:__\n{cmd} \n__PID:__\n{
+        process.pid}\n\nstderr: \n{e}\nOutput:\n{o}"
     if len(OUTPUT) > 4000:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "exec.text"
@@ -109,7 +110,10 @@ async def bash(event, cmd, client):
             )
             return await event.delete()
     else:
-        OUTPUT = f"<pre>\n<code class='language-bash'>{html.escape(cmd)}</code>\n</pre>\n<i>PID:</i>\n{process.pid}\n\n<pre>\n<code class='language-Stderr:'>{e}</code>\n</pre>\n<pre>\n<code class='language-Output:'>{html.escape(o)}</code>\n</pre>"
+        OUTPUT = f"<pre>\n<code class='language-bash'>{
+            html.escape(cmd)}</code>\n</pre>\n<i>PID:</i>\n{
+            process.pid}\n\n<pre>\n<code class='language-Stderr:'>{e}</code>\n</pre>\n<pre>\n<code class='language-Output:'>{
+            html.escape(o)}</code>\n</pre>"
         await event.reply(OUTPUT, parse_mode="html")
 
 

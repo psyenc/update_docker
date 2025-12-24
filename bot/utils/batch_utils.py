@@ -67,7 +67,8 @@ async def get_preview_msg(file_list, batch_queue, ver=None, fil=None):
             if PARSE_STATUS and status != 3:
                 file_name = await qparse(file_name, ver=ver, fil=fil)
 
-            msg += f"{_no}. `{file_name}`\n  └**Status:** `{sdict.get(status)}`\n\n"
+            msg += f"{_no}. `{file_name}`\n  └**Status:** `{
+                sdict.get(status)}`\n\n"
 
         if not msg:
             return None, None
