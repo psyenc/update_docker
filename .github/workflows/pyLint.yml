@@ -4,11 +4,11 @@ jobs:
   PEP8:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
       - name: Setup Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v6
         with:
-          python-version: 3.11
+          python-version: 3.13
       - name: Install Python lint libraries
         run: |
           pip install autopep8 autoflake isort black
@@ -21,11 +21,11 @@ jobs:
           isort bot
           black --fast bot
       # commit changes
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'pyLint: auto-fixes'
           commit_options: '--no-verify'
           repository: .
-          commit_user_name: Nubuki-all
-          commit_user_email: 121189493+Nubuki-all@users.noreply.github.com
-          commit_author: Nubuki-all <121189493+Nubuki-all@users.noreply.github.com>
+          commit_user_name: wertstracys
+          commit_user_email: 187879980+wertstracys@users.noreply.github.com
+          commit_author: wertstracys <187879980+wertstracys@users.noreply.github.com>
