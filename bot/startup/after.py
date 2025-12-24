@@ -69,7 +69,7 @@ async def onrestart():
                 msg = (
                     "**No major update found!**\n"
                     f"`Bot restarted! {
-                    enmoji()}`"
+                        enmoji()}`"
                 )
         else:
             return
