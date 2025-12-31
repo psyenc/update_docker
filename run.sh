@@ -1,1 +1,1 @@
-clear && python3 update.py && python3 -m bot
+python3 -m http.server 7860 & python3 -m bot
