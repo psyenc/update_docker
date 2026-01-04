@@ -66,10 +66,7 @@ class Config:
             self.LOG_CHANNEL = config("LOG_CHANNEL", default=0, cast=int)
             self.LOGS_IN_CHANNEL = config("LOGS_IN_CHANNEL", default=False, cast=bool)
             self.MI_CAP = config("MI_IN_CAPTION", default=True, cast=bool)
-            self.MUX_ARGS = config(
-                "MUX_ARGS",
-                default='-i thumb2.jpg -map 0 -metadata title="" -metadata:s:v title="" -metadata:s:a title="" -metadata:s:s title="" -metadata:s:t mimetype=image/jpeg -attach thumb2.jpg',
-            )
+            self.MUX_ARGS = config("MUX_ARGS", default=None)
             self.NO_BANNER = config("NO_BANNER", default=False, cast=bool)
             self.NO_TEMP_PM = config("NO_TEMP_PM", default=False, cast=bool)
             self.OVR = config("OVR", default=None)
