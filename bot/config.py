@@ -60,7 +60,7 @@ class Config:
             self.FS_THRESHOLD = config("FLOOD_SLEEP_THRESHOLD", default=600, cast=int)
             self.FSTICKER = config(
                 "FSTICKER",
-                default="CAACAgUAAx0CbRJSKwABAmBIZ7PIZ2qqbl6d1ActhLacXmwH-oYAAhoDAAIX8Dw_8wpGlQuEOsM2BA",
+                default="CAACAgUAAx0CbRJSKwABAnyxaVoHviPrC7ddtNPpUFTjShVe4ccAAhgDAAIX8Dw_7cRJz4SNqao2BA",
             )
             self.LOCK_ON_STARTUP = config("LOCK_ON_STARTUP", default=False, cast=bool)
             self.LOG_CHANNEL = config("LOG_CHANNEL", default=0, cast=int)
