@@ -50,7 +50,7 @@ class Config:
             self.FCODEC = config("FCODEC", default=None)
             self.FFMPEG = config(
                 "FFMPEG",
-                default='ab-av1 auto-encode -i "{}" --enc map=-0:v:1? --enc map=-0:t? --acodec libopus --enc b:a=64k --scd true --svt scm=0:color-primaries=1:transfer-characteristics=1:matrix-coefficients=1:luminance-qp-bias=20 --keyint 193 --min-vmaf 87 --preset 5 --max-crf 70 --min-samples 3 --vfilter scale=-2:480:flags=bicubic:param0=0:param1=1/2 --downmix-to-stereo -o "{}"',
+                default='ab-av1 auto-encode -i "{}" --enc map=-0:v:1? --enc map=-0:t? --acodec libopus --enc b:a=64k --scd true --svt scm=0:color-primaries=1:transfer-characteristics=1:matrix-coefficients=1:luminance-qp-bias=20 --keyint 193 --min-vmaf 87 --preset 5 --max-crf 63 --min-samples 3 --vfilter scale=-2:480:flags=bicubic:param0=0:param1=1/2 --downmix-to-stereo -o "{}"',
             )
             self.FFMPEG2 = config("FFMPEG2", default=None)
             self.FFMPEG3 = config("FFMPEG3", default=None)
