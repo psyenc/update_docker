@@ -11,10 +11,10 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TERM=xterm
 
 # Define ARG for ffmpeg build
-#ARG FFMPEG_BUILD="QuickFatHedgehog/FFmpeg-Builds-SVT-AV1-HDR"
+ARG FFMPEG_BUILD="QuickFatHedgehog/FFmpeg-Builds-SVT-AV1-HDR"
 #ARG FFMPEG_BUILD="BtbN/FFmpeg-Builds"
 #ARG FFMPEG_BUILD="Uranite/FFmpeg-Builds-SVT-AV1-PSY"
-ARG FFMPEG_BUILD="nekotrix/FFmpeg-Builds-SVT-AV1-Essential"
+#ARG FFMPEG_BUILD="nekotrix/FFmpeg-Builds-SVT-AV1-Essential"
 
 # Install Dependencies
 RUN dnf -qq -y upgrade --refresh && \
