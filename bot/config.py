@@ -30,7 +30,7 @@ class Config:
             self.ARIA2_PORT = config("ARIA2_PORT", default=6800, cast=int)
             self.BOT_TOKEN = config("BOT_TOKEN")
             self.CACHE_DL = config("CACHE_DL", default=True, cast=bool)
-            self.CAP_DECO = config("CAP_DECO", default="🍂")
+            self.CAP_DECO = config("CAP_DECO", default="❄️")
             self.C_LINK = config("C_LINK", default="@QVA_FLiX")
             self.CMD_SUFFIX = config("CMD_SUFFIX", default=str())
             self.COMP_MODE = config("COMPATIBILITY_MODE", default=True, cast=bool)
@@ -60,7 +60,7 @@ class Config:
             self.FS_THRESHOLD = config("FLOOD_SLEEP_THRESHOLD", default=600, cast=int)
             self.FSTICKER = config(
                 "FSTICKER",
-                default="CAACAgUAAx0CbRJSKwABAnyxaVoHviPrC7ddtNPpUFTjShVe4ccAAhgDAAIX8Dw_7cRJz4SNqao2BA",
+                default="CAACAgEAAx0CZ7A8xwABAVeNaXpK-4oDKnAwqejkToLISXGWKboAAj4NAAJdmBIMMZzT7OrZBNQ2BA",
             )
             self.LOCK_ON_STARTUP = config("LOCK_ON_STARTUP", default=False, cast=bool)
             self.LOG_CHANNEL = config("LOG_CHANNEL", default=0, cast=int)
