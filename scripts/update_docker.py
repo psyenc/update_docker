@@ -9,8 +9,7 @@ def varssaver(evars, files):
 
 
 if len(sys.argv) == 1:
-    entry = (
-        """# Base Image
+    entry = """# Base Image
 FROM colserra/fedora37_wf
 
 # 1. Setup home directory, non interactive shell and timezone
@@ -25,10 +24,8 @@ COPY . .
 
 # 3. Start bot
 CMD ["bash","run.sh"]"""
-    )
 else:
-    entry = (
-        """# Base Image
+    entry = """# Base Image
 FROM fedora:37
 #FROM colserra/fedora37_wf
 # 2nd docker image allows skipping step 2-3 & 5-6
@@ -58,7 +55,6 @@ RUN if [[ $(arch) == 'aarch64' ]]; then   dnf -qq -y history undo last; fi && dn
 
 # 7. Start bot
 CMD ["bash","run.sh"]"""
-    )
 
 
 varssaver(entry, "Dockerfile")

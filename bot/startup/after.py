@@ -66,7 +66,8 @@ async def onrestart():
                     v = file.read()
                 msg = f"**Updated to >>>** `{v}`"
             else:
-                msg = "**No major update found!**\n" f"`Bot restarted! {enmoji()}`"
+                msg = "**No major update found!**\n" f"`Bot restarted! {
+                    enmoji()}`"
         else:
             return
         chat_id, msg_id = map(int, sys.argv[2].split(":"))

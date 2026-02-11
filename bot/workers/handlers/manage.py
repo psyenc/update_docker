@@ -251,7 +251,8 @@ async def custom_rename(event, args, client):
     )
     if (arg.c or arg.d or arg.r) and args:
         return await event.reply(f"`{custom_rename.__doc__}`")
-    state = f"**Custom rename format is {'not ' if not _bot.custom_rename else str()}present.**"
+    state = f"**Custom rename format is {
+        'not ' if not _bot.custom_rename else str()}present.**"
     if arg.c:
         return await event.reply(state)
     if arg.d:
@@ -460,7 +461,8 @@ async def reffmpeg2(event, args, client):
                     with open(ffmpeg_file2, "w") as file:
                         file.write(str(conf.FFMPEG2) + "\n")
                     await save2db2(conf.FFMPEG2, f"ffmpeg{s}")
-                    res = f"<pre>\n<code class='Reseted ffmpeg{s} CLI parameters to:'>{conf.FFMPEG2}</code>\n</pre>"
+                    res = f"<pre>\n<code class='Reseted ffmpeg{s} CLI parameters to:'>{
+                        conf.FFMPEG2}</code>\n</pre>"
         elif "-3" in args:
             if not conf.FFMPEG3 and not file_exists(ffmpeg_file3):
                 res = f"FFMPEG{s} not set in .env or bot."
@@ -473,7 +475,8 @@ async def reffmpeg2(event, args, client):
                     with open(ffmpeg_file3, "w") as file:
                         file.write(str(conf.FFMPEG3) + "\n")
                     await save2db2(conf.FFMPEG3, f"ffmpeg{s}")
-                    res = f"<pre>\n<code class='Reseted ffmpeg{s} CLI parameters to:'>{conf.FFMPEG3}</code>\n</pre>"
+                    res = f"<pre>\n<code class='Reseted ffmpeg{s} CLI parameters to:'>{
+                        conf.FFMPEG3}</code>\n</pre>"
         elif "-4" in args:
             if not conf.FFMPEG4 and not file_exists(ffmpeg_file4):
                 res = f"FFMPEG{s} not set in .env or bot."
@@ -486,7 +489,8 @@ async def reffmpeg2(event, args, client):
                     with open(ffmpeg_file4, "w") as file:
                         file.write(str(conf.FFMPEG4) + "\n")
                     await save2db2(conf.FFMPEG4, f"ffmpeg{s}")
-                    res = f"<pre>\n<code class='Reseted ffmpeg{s} CLI parameters to:'>{conf.FFMPEG4}</code>\n</pre>"
+                    res = f"<pre>\n<code class='Reseted ffmpeg{s} CLI parameters to:'>{
+                        conf.FFMPEG4}</code>\n</pre>"
 
         ejob.reset()
         await event.reply(
@@ -977,10 +981,17 @@ async def rss_list(event, args, client):
 
     async with rss_dict_lock:
         for i, (title, data) in zip(itertools.count(1), list(_bot.rss_dict.items())):
-            list_feed += f"\n\n{i}.<b>Title:</b> <code>{title}</code>\n<b>Feed Url: </b><code>{data['link']}</code>\n"
-            list_feed += f"<b>Chat:</b> <code>{data['chat'] or 'Default'}</code>\n"
+            list_feed += (
+                f"\n\n{i}.<b>Title:</b> <code>{title}</code>\n<b>Feed Url: </b><code>{
+                data['link']}</code>\n"
+            )
+            list_feed += f"<b>Chat:</b> <code>{
+                data['chat'] or 'Default'}</code>\n"
             list_feed += f"<b>Command:</b> <code>{data['command']}</code>\n"
-            list_feed += f"<b>Direct:</b> <code>{data.get('direct', True)}</code>\n"
+            list_feed += f"<b>Direct:</b> <code>{
+                data.get(
+                    'direct',
+                    True)}</code>\n"
             list_feed += (
                 f"<b>Include filter:</b> <code>{parse_filter(data['inf'])}</code>\n"
             )
@@ -1037,7 +1048,10 @@ async def rss_get(event, args, client):
                 link = rss_d.entries[item_num]["links"][1]["href"]
             except IndexError:
                 link = rss_d.entries[item_num]["link"]
-            item_info += f"<b>Name: </b><code>{rss_d.entries[item_num]['title'].replace('>', '').replace('<', '')}</code>\n"
+            item_info += f"<b>Name: </b><code>{
+                rss_d.entries[item_num]['title'].replace(
+                    '>', '').replace(
+                    '<', '')}</code>\n"
             item_info += f"<b>Link: </b><code>{link}</code>\n\n"
         for msg in await split_text(item_info, "\n\n"):
             pre_event = await avoid_flood(pre_event.reply, msg, parse_mode="html")
@@ -1303,7 +1317,10 @@ async def rss_sub(event, args, client):
         msg += "<b>Subscribed!</b>"
         msg += f"\n<b>Title: </b><code>{title}</code>\n<b>Feed Url: </b>{feed_link}"
         msg += f"\n<b>latest record for </b>{rss_d.feed.title}:"
-        msg += f"\nName: <code>{last_title.replace('>', '').replace('<', '')}</code>"
+        msg += f"\nName: <code>{
+            last_title.replace(
+                '>', '').replace(
+                '<', '')}</code>"
         try:
             last_link = rss_d.entries[0]["links"][1]["href"]
         except IndexError:
@@ -1312,7 +1329,9 @@ async def rss_sub(event, args, client):
         msg += f"\n<b>Chat:- </b><code>{arg.chat or 'Default'}</code>"
         msg += f"\n<b>Command:- </b><code>{arg.c}</code>"
         msg += f"\n<b>Direct:- </b><code>{arg.direct}</code>"
-        msg += f"\n<b>Filters:-</b>\ninf: <code>{arg.inf}</code>\nexf: <code>{arg.exf}<code/>"
+        msg += f"\n<b>Filters:-</b>\ninf: <code>{
+            arg.inf}</code>\nexf: <code>{
+            arg.exf}<code/>"
         msg += f"\n<b>Paused:- </b><code>{arg.p}</code>"
         async with rss_dict_lock:
             _bot.rss_dict[title] = {
