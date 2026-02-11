@@ -983,7 +983,7 @@ async def rss_list(event, args, client):
         for i, (title, data) in zip(itertools.count(1), list(_bot.rss_dict.items())):
             list_feed += (
                 f"\n\n{i}.<b>Title:</b> <code>{title}</code>\n<b>Feed Url: </b><code>{
-                data['link']}</code>\n"
+                    data['link']}</code>\n"
             )
             list_feed += f"<b>Chat:</b> <code>{
                 data['chat'] or 'Default'}</code>\n"
