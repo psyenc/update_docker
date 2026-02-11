@@ -1,31 +1,44 @@
-name: pyLint
-on: push
+name: PyLint Workflow
+
+on:
+  push:
+
 jobs:
-  PEP8:
+  linting:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup Python
-        uses: actions/setup-python@v1
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: Set Up Python
+        uses: actions/setup-python@v6
         with:
-          python-version: 3.11
-      - name: Install Python lint libraries
+          python-version: '3.13'
+
+      - name: Install Linting Libraries
         run: |
           pip install autopep8 autoflake isort black
-      - name: Check for showstoppers
-        run: autopep8 --verbose --in-place --recursive --aggressive --aggressive .
-      - name: Remove unused imports and variables
-        run: autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
-      - name: lint with isort and black
+
+      - name: Check PEP8 Compliance
         run: |
-          isort bot
-          black --fast bot
-      # commit changes
-      - uses: stefanzweifel/git-auto-commit-action@v4
+          autopep8 --verbose --in-place --recursive --aggressive --aggressive .
+
+      - name: Cleanup Code
+        run: |
+          autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
+
+      - name: Format Code
+        run: |
+          isort .
+          black --fast .
+
+      - name: Commit Auto-fixes
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'pyLint: auto-fixes'
           commit_options: '--no-verify'
           repository: .
-          commit_user_name: Nubuki-all
-          commit_user_email: 121189493+Nubuki-all@users.noreply.github.com
-          commit_author: Nubuki-all <121189493+Nubuki-all@users.noreply.github.com>
+          commit_user_name: wertstracys
+          commit_user_email: 187879980+wertstracys@users.noreply.github.com
+          commit_author: wertstracys <187879980+wertstracys@users.noreply.github.com>
