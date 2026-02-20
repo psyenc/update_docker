@@ -26,7 +26,7 @@ RUN wget -q "https://github.com/${FFMPEG_BUILD}/releases/download/latest/ffmpeg-
     rm -rf ffmpeg-master-latest-linux64-gpl*
 
 # Install ab-av1
-RUN wget -q https://github.com/alexheretic/ab-av1/releases/download/v0.10.4/ab-av1-v0.11.0-x86_64-unknown-linux-musl.tar.zst && \
+RUN wget -q https://github.com/alexheretic/ab-av1/releases/download/v0.11.0/ab-av1-v0.11.0-x86_64-unknown-linux-musl.tar.zst && \
     tar -xvf ab-av1-v0.11.0-x86_64-unknown-linux-musl.tar.zst && \
     install ab-av1 /usr/local/bin/ && \
     rm -rf ab-av1*
