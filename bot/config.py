@@ -50,7 +50,7 @@ class Config:
             self.FCODEC = config("FCODEC", default=None)
             self.FFMPEG = config(
                 "FFMPEG",
-                default='ab-av1 auto-encode -i "{}" --enc map=-0:v:1? --enc map=-0:t? --acodec libopus --enc b:a=80k --scd true --svt tile-columns=1:enable-dlf=2:enable-dg=0:mbr-overshoot-pct=0:scm=0:tune=0:color-primaries=1:transfer-characteristics=1:matrix-coefficients=1:qm-min=0:qm-max=15:chroma-qm-min=0:variance-boost-strength=1:variance-octile=4:tf-strength=1:luminance-qp-bias=10:sharpness=1:ac-bias=2.0:sharp-tx=1:hbd-mds=1:complex-hvs=1:noise-adaptive-filtering=3 --keyint 193 --min-vmaf 93 --preset 5 --max-crf 70 --min-samples 3 --vfilter scale=1280:-2:flags=bicubic:param0=0:param1=1/2 --downmix-to-stereo -o "{}"',
+                default='ab-av1 auto-encode -i "{}" --enc map=-0:v:1? --enc map=-0:t? --acodec libopus --enc b:a=64k --scd true --svt tile-columns=1:enable-dlf=2:enable-dg=0:mbr-overshoot-pct=0:scm=0:tune=1:enable-qm=1:qm-min=0:qm-max=15:chroma-qm-min=0:enable-variance-boost=1:variance-boost-strength=1:variance-octile=4:tf-strength=1:luminance-qp-bias=10:sharpness=1:qp-scale-compress-strength=1:ac-bias=1.0:noise-norm-strength=1:sharp-tx=1:hbd-mds=1:complex-hvs=1:noise-adaptive-filtering=2 --keyint 193 --min-vmaf 91 --preset 6 --min-samples 3 --vfilter scale=1280:-2:flags=bicubic:param0=0:param1=1/2 --downmix-to-stereo -o "{}"',
             )
             self.FFMPEG2 = config("FFMPEG2", default=None)
             self.FFMPEG3 = config("FFMPEG3", default=None)
@@ -66,7 +66,7 @@ class Config:
             self.LOG_CHANNEL = config("LOG_CHANNEL", default=0, cast=int)
             self.LOGS_IN_CHANNEL = config("LOGS_IN_CHANNEL", default=False, cast=bool)
             self.MI_CAP = config("MI_IN_CAPTION", default=True, cast=bool)
-            self.MUX_ARGS = config("MUX_ARGS", default=None)
+            self.MUX_ARGS = config("MUX_ARGS", default="-map 0")
             self.NO_BANNER = config("NO_BANNER", default=False, cast=bool)
             self.NO_TEMP_PM = config("NO_TEMP_PM", default=False, cast=bool)
             self.OVR = config("OVR", default=None)
