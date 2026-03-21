@@ -12,6 +12,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 # Define ARG for ffmpeg build
 ARG FFMPEG_BUILD="QuickFatHedgehog/FFmpeg-Builds-SVT-AV1-HDR"
+#ARG FFMPEG_BUILD="BtbN/FFmpeg-Builds"
 #ARG FFMPEG_BUILD="nekotrix/FFmpeg-Builds-SVT-AV1-Essential"
 
 # Install Dependencies
