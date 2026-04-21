@@ -50,7 +50,7 @@ class Config:
             self.FCODEC = config("FCODEC", default=None)
             self.FFMPEG = config(
                 "FFMPEG",
-                default='ab-av1 auto-encode -i "{}" --enc map=-0:v:1? --acodec libopus --enc b:a=64k --scd true --svt tile-columns=0:enable-dlf=2:enable-dg=0:mbr-overshoot-pct=0:scm=0:tune=1:enable-qm=1:qm-min=0:qm-max=15:chroma-qm-min=0:enable-variance-boost=1:variance-boost-strength=1:variance-octile=4:tf-strength=1:luminance-qp-bias=10:sharpness=1:qp-scale-compress-strength=1:ac-bias=1.0:noise-norm-strength=1:sharp-tx=1:hbd-mds=1:complex-hvs=1:noise-adaptive-filtering=2 --keyint 193 --min-vmaf 89 --preset 4 --vfilter scale=1280:-2:flags=bicubic:param0=0:param1=1/2 --downmix-to-stereo --sample-duration 20s --sample-every 12m -o "{}"',
+                default='ab-av1 auto-encode -i "{}" --enc map=-0:v:1? --acodec libopus --enc b:a=64k --scd true --svt tile-columns=0:enable-dlf=2:enable-dg=0:mbr-overshoot-pct=0:scm=0:tune=1:enable-qm=1:qm-min=2:qm-max=15:chroma-qm-min=4:enable-variance-boost=1:variance-boost-strength=1:variance-octile=4:tf-strength=1:luminance-qp-bias=10:sharpness=1:qp-scale-compress-strength=1:ac-bias=0.25:noise-norm-strength=0:sharp-tx=0:hbd-mds=1:complex-hvs=0:noise-adaptive-filtering=2 --keyint 193 --min-vmaf 89 --preset 4 --vfilter scale=1280:-2:flags=bicubic:param0=0:param1=1/2 --downmix-to-stereo --sample-duration 20s --sample-every 12m -o "{}"',
             )
             self.FFMPEG2 = config("FFMPEG2", default=None)
             self.FFMPEG3 = config("FFMPEG3", default=None)
