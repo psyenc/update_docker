@@ -44,4 +44,3 @@ jobs:
           #tags: psyenc/svtav1enc:hdr
           #tags: psyenc/svtav1enc:latest
           tags: psyenc/svtav1enc:essential
-
