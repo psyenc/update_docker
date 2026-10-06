@@ -1,7 +1,7 @@
 name: PyLint Workflow
 
-on:
-  push:
+#on:
+  #push:
 
 jobs:
   linting:
